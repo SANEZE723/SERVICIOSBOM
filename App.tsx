@@ -73,7 +73,7 @@ const initializeSchedule = (): Schedule => {
         const newService = { ...service };
         if (!newService.id) newService.id = `service-hydrated-${Date.now()}-${idCounter++}`;
         
-        newService.isHidden = String(newService.isHidden) === 'true';
+        (newService as any).isHidden = String(service.isHidden) === 'true';
         
         if (Array.isArray(newService.assignments)) {
           newService.assignments = newService.assignments
